@@ -1,5 +1,6 @@
 .header {
   padding: 20px 0;
+  background-color: rgb(223, 223, 223);
 }
 .nav {
   display: flex;
@@ -22,10 +23,10 @@
   font-weight: 500;
   letter-spacing: 0.02em;
   transition: 200ms ease-in;
-}
+background-color: dimgray;}
 .nav-link:hover,
 .nav-link:focus {
-  color: #747bff;
+  background-color: #747bff;
 }
 .nav-link::after {
   content: '';
