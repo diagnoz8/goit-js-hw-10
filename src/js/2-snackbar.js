@@ -74,7 +74,7 @@ form.addEventListener("submit",(evt)=>{
             title: 'Error',
             message: `${msg}`,
             color: '#EF4040',
-            iconUrl: './img/error.png',
+            iconUrl: '../img/error.png',
             iconColor: '#FFFFFF',
             titleColor: '#FFFFFF',
             titleSize: '16px',
