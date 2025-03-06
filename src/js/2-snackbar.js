@@ -9,12 +9,36 @@ form.addEventListener("submit",(evt)=>{
     evt.preventDefault();
     const selected = fieldset.querySelector('input[name="state"]:checked');
     if (!selected) {
-        alert("select state");
+        iziToast.show({
+            title: 'Caution',
+            message: `You forgot important data`,
+            color: '#FFA000',
+            titleColor: '#FFFFFF',
+            titleSize: '16px',
+            titleLineHeight: '24px',
+            messageColor: '#FFFFFF',
+            messageSize: '16px',
+            messageLineHeight: '24px',
+            theme: 'dark',
+            position: 'topRight', 
+        })
         return
     }
     let delay = Number(delayEl.value);
-    if (Number.isNaN(delay)) {
-        alert("enter delay");
+    if (Number.isNaN(delay) || delay === 0 ) {
+        iziToast.show({
+            title: 'Caution',
+            message: `You forgot important data`,
+            color: '#FFA000',
+            titleColor: '#FFFFFF',
+            titleSize: '16px',
+            titleLineHeight: '24px',
+            messageColor: '#FFFFFF',
+            messageSize: '16px',
+            messageLineHeight: '24px',
+            theme: 'dark',
+            position: 'topRight', 
+        })
         return
     }
         const promise = new Promise((resolve, reject) => {     
@@ -24,7 +48,7 @@ form.addEventListener("submit",(evt)=>{
                     resolve(msg)
                 }
                 else{
-                   msg =`❌ Rejected promise in ${delay}ms`
+                   msg =`Rejected promise in ${delay}ms`
                     reject(msg)
                 }
                 
@@ -33,9 +57,9 @@ form.addEventListener("submit",(evt)=>{
           })
           .then((msg) =>
             iziToast.show({
-            title: '',
+            title: 'OK',
             message: `${msg}`,
-            color: '#EF4040',
+            color: '#59A10D',
             titleColor: '#FFFFFF',
             titleSize: '16px',
             titleLineHeight: '24px',
@@ -47,9 +71,11 @@ form.addEventListener("submit",(evt)=>{
         }))
         .catch((msg) =>
             iziToast.show({
-            title: '',
+            title: 'Error',
             message: `${msg}`,
             color: '#EF4040',
+            iconUrl: '../img/error.png',
+            iconColor: '#FFFFFF',
             titleColor: '#FFFFFF',
             titleSize: '16px',
             titleLineHeight: '24px',

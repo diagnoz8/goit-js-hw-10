@@ -34,12 +34,18 @@ letter-spacing: 4%;
 .form :first-child > input{
   display: flex;
   flex-direction: column;
-  width: 360px;
-  height: 40px;
+  width: 340px;
+  height: 24px;
   border-radius: 4px;
     border: 1px solid #808080;
     margin-top: 8px;
-    padding: 0;
+    padding: 8px 4px 8px 16px;
+}
+.form :first-child > input:hover{
+  border: 1px solid #000000;
+}
+.form :first-child > input:focus{
+  border: 1px solid #4E75FF;
 }
 .form > fieldset{
   display: flex;
@@ -50,6 +56,9 @@ border: 1px solid #808080;
 border-radius: 4px;
 padding: 0;
 margin-top: 16px;
+}
+.form>fieldset:hover{
+  border: 1px solid #000000;
 }
 .form > fieldset > legend{
   margin-left: 28px;
@@ -74,6 +83,9 @@ border-radius: 14px;
 border: 1px solid #757575;
 margin: 0;
 }
+.form > fieldset > label> input:checked{
+  color: #4E75FF;
+}
 .form > button{
   width: 360px;
 height: 40px;
@@ -86,6 +98,10 @@ padding-bottom: 8px;
 padding-left: 16px;
 font-weight: 500;
 line-height: 24px;
+}
+.form>button:hover{
+  background: #6C8CFF;
+
 }
 #datetime-picker{
   width: 256px;
