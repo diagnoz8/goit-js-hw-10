@@ -4,7 +4,7 @@ const form = document.querySelector(".form");
 const fieldset = document.querySelector('fieldset');
 const delayEl = document.querySelector('[name="delay"]')
 const button = document.querySelector('button[type="submit"]')
-let msg = ``;
+
 form.addEventListener("submit",(evt)=>{
     evt.preventDefault();
     const selected = fieldset.querySelector('input[name="state"]:checked');
@@ -44,21 +44,21 @@ form.addEventListener("submit",(evt)=>{
         const promise = new Promise((resolve, reject) => {     
             setTimeout(() => {
                 if (selected.value === "fulfilled") {
-                    msg = `✅ Fulfilled promise in ${delay}ms`;
-                    resolve(msg)
+                  
+                    resolve(delay)
                 }
                 else{
-                   msg =`Rejected promise in ${delay}ms`
-                    reject(msg)
+                
+                    reject(delay)
                 }
                 
                 
             }, delay);
           })
-          .then((msg) =>
+          .then((delay) =>
             iziToast.show({
             title: 'OK',
-            message: `${msg}`,
+            message: `✅ Fulfilled promise in ${delay}ms`,
             color: '#59A10D',
             titleColor: '#FFFFFF',
             titleSize: '16px',
@@ -69,10 +69,10 @@ form.addEventListener("submit",(evt)=>{
             theme: 'dark',
             position: 'topRight', 
         }))
-        .catch((msg) =>
+        .catch((delay) =>
             iziToast.show({
             title: 'Error',
-            message: `${msg}`,
+            message: `❌Rejected promise in ${delay}ms`,
             color: '#EF4040',
             iconUrl: '../img/error.png',
             iconColor: '#FFFFFF',
