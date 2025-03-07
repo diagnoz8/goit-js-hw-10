@@ -2,6 +2,7 @@ import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
 import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
+import errorIcon from '../img/error.png';
 let userSelectedDate;
 const startBtn =  document.querySelector('button[data-start]');
 const userInput = document.querySelector("#datetime-picker");
@@ -32,7 +33,7 @@ const options = {
                 messageColor: '#FFFFFF',
                 messageSize: '16px',
                 messageLineHeight: '24px',
-                iconUrl: '../img/error.png',
+                iconUrl: errorIcon,
                 iconColor: '#FFFFFF',
                 theme: 'dark',
                 position: 'topRight', 

@@ -31,7 +31,7 @@ font-size: 16px;
 line-height: 24px;
 letter-spacing: 4%;
 }
-.form :first-child > input{
+.form:first-child > input{
   display: flex;
   flex-direction: column;
   width: 340px;
@@ -41,10 +41,10 @@ letter-spacing: 4%;
     margin-top: 8px;
     padding: 8px 4px 8px 16px;
 }
-.form :first-child > input:hover{
+.form:first-child > input:hover{
   border: 1px solid #000000;
 }
-.form :first-child > input:focus{
+.form:first-child > input:focus{
   border: 1px solid #4E75FF;
 }
 .form > fieldset{

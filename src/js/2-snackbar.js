@@ -1,5 +1,6 @@
 import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
+import errorIcon from '../img/error.png';
 const form = document.querySelector(".form");
 const fieldset = document.querySelector('fieldset');
 const delayEl = document.querySelector('[name="delay"]')
@@ -44,11 +45,9 @@ form.addEventListener("submit",(evt)=>{
         const promise = new Promise((resolve, reject) => {     
             setTimeout(() => {
                 if (selected.value === "fulfilled") {
-                  
                     resolve(delay)
                 }
-                else{
-                
+                else{    
                     reject(delay)
                 }
                 
@@ -74,7 +73,7 @@ form.addEventListener("submit",(evt)=>{
             title: 'Error',
             message: `❌Rejected promise in ${delay}ms`,
             color: '#EF4040',
-            iconUrl: '../img/error.png',
+            iconUrl: errorIcon,
             iconColor: '#FFFFFF',
             titleColor: '#FFFFFF',
             titleSize: '16px',
