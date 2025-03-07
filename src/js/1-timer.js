@@ -9,10 +9,11 @@ const days = document.querySelector('span[data-days]');
 const hrs = document.querySelector('span[data-hours]');
 const min = document.querySelector('span[data-minutes]');
 const sec = document.querySelector('span[data-seconds]');
-
+function getCurrentDate(){
+    return new Date();
+}
 startBtn.dataset.start = "unactive";
  startBtn.disabled = true;
-let currentDate;
 const options = {
     enableTime: true,
     time_24hr: true,
@@ -20,8 +21,7 @@ const options = {
     minuteIncrement: 1,
     onClose(selectedDates) {
         const selectedDate = selectedDates[0];
-        currentDate = new Date();
-        if (selectedDate < currentDate) {
+        if (selectedDate < getCurrentDate()) {
             iziToast.show({
                 title: 'Error',
                 message: 'Please choose a date in the future',
@@ -76,16 +76,16 @@ startBtn.addEventListener("click", () => {
     startBtn.dataset.start = "unactive";
     startBtn.disabled = true;
     userInput.disabled = true;
-    let timeLeft = convertMs(userSelectedDate - ( currentDate = new Date()));
     const intervalId = setInterval(()=> {
-            timeLeft = convertMs(userSelectedDate - ( currentDate = new Date()));
-            days.textContent = addLeadingZero(`${timeLeft.days}`);
+        let now = getCurrentDate();
+        let timeLeft = convertMs(userSelectedDate - now );
+        days.textContent = addLeadingZero(`${timeLeft.days}`);
             hrs.textContent = addLeadingZero(`${timeLeft.hours}`);
             min.textContent = addLeadingZero(`${timeLeft.minutes}`);
             sec.textContent = addLeadingZero(`${timeLeft.seconds}`);
   
 
-    if ( userSelectedDate - ( currentDate = new Date())<= 0){
+    if ( userSelectedDate <= now){
         clearInterval(intervalId);
         days.textContent = `00`;
         hrs.textContent = `00`;
